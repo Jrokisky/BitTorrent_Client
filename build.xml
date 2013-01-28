@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--Build file for RUBTClient Project 1 with Apache Ant-->
+<project name="RUBTClient Phase 1" default="compile" basedir=".">
+    <target name="clean">
+        <delete dir="bin"/>
+        <delete file="output1.jpg"/>
+        <delete file="output2.mp3"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac includeantruntime="false" debug= "on" debuglevel="lines,vars,source" srcdir="src" destdir="bin" classpath="."/>
+    </target>
+
+    <target name="run1">
+        <java fork="true" failonerror="yes" classname="RUBTClient" classpath="bin;.">
+            <arg line="torrents/project1.torrent output1.jpg"/>
+        </java>
+    </target>
+    <target name="run2">
+        <java fork="true" failonerror="yes" classname="RUBTClient" classpath="bin;.">
+            <arg line="torrents/project2.torrent output2.mp3"/>
+        </java>
+    </target>
+</project>
